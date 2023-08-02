@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sorting Visualization</title>
+
+    <!-- css sheet for how the page is laid out -->
+
+    <link rel="stylesheet" href="visualizationPageStyle.css" />
+
+    <!-- jqueury stuff.  Only used for the animation speed slider. -->
+    <link rel="stylesheet" href="jquery-ui-1.8.11.custom.css" />
+    <script src="jquery-1.5.2.min.js"></script>
+    <script src="jquery-ui-1.8.11.custom.min.js"></script>
+
+    <!-- Javascript for the actual visualization code -->
+    <script type="text/javascript" src="CustomEvents.js"></script>
+    <script type="text/javascript" src="UndoFunctions.js"></script>
+    <script type="text/javascript" src="AnimatedObject.js"></script>
+    <script type="text/javascript" src="AnimatedLabel.js"></script>
+    <script type="text/javascript" src="AnimatedCircle.js"></script>
+    <script type="text/javascript" src="AnimatedRectangle.js"></script>
+    <script type="text/javascript" src="AnimatedLinkedList.js"></script>
+    <script type="text/javascript" src="HighlightCircle.js"></script>
+    <script type="text/javascript" src="Line.js"></script>
+    <script type="text/javascript" src="ObjectManager.js"></script>
+    <script type="text/javascript" src="AnimationMain.js"></script>
+    <script type="text/javascript" src="Algorithm.js"></script>
+    <script type="text/javascript" src="ComparisonSort.js"></script>
+  </head>
+  <body onload="init();" class="VisualizationMainPage">
+    <div id="container">
+      <div id="header">
+        <h1>Sorting Algorithms</h1>
+      </div>
+
+      <div id="mainContent">
+        <div id="algoControlSection">
+          <!-- Table for buttons to control specific animation (insert/find/etc) -->
+          <!-- (filled in by javascript code specific to the animtion) -->
+          <table
+            id="AlgorithmSpecificControls"
+            style="padding-left: 370px"
+          ></table>
+          <button class="heap">
+            <a href="HeapSort.html" id="hi">Heap Sort</a>
+          </button>
+        </div>
+
+        <div style="display: flex; background-color: rgb(151, 219, 144)">
+          <p style="display: flex; padding-right: 2px">
+            Algorithms for the above options:-
+          </p>
+          <!--add the image thing here-->
+          <img id="image1" src="" />
+          <img id="image2" src="" />
+          <img id="image3" src="" />
+          <img id="image4" src="" />
+          <img id="image5" src="" />
+          <div class="algo">
+            <button onclick="show1()" id="btnID" style="border-radius: 18px">
+              <a href="#">Insertion sort</a>
+            </button>
+            <button onclick="show2()" id="btnID" style="border-radius: 18px">
+              <a href="#">Selection sort</a>
+            </button>
+            <button onclick="show3()" id="btnID" style="border-radius: 18px">
+              <a href="#">Bubble sort</a>
+            </button>
+            <button onclick="show4()" id="btnID" style="border-radius: 18px">
+              <a href="#">Quick sort</a>
+            </button>
+            <button onclick="show5()" id="btnID" style="border-radius: 18px">
+              <a href="#">Merge sort</a>
+            </button>
+          </div>
+        </div>
+
+        <!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
+
+        <canvas
+          id="canvas"
+          width="1000"
+          height="500"
+          style="padding: 50px 17%; background-color: rgb(198, 226, 235)"
+        ></canvas>
+        <div id="generalAnimationControlSection">
+          <!-- Table for buttons to control general animation (play/pause/undo/etc) ->
+					<!-- (filled in by javascript code, specifically AnimationMain.js)  -->
+
+          <table id="GeneralAnimationControls"></table>
+        </div>
+      </div>
+      <!-- mainContent -->
+    </div>
+    <script>
+      function show1() {
+        /* Get image and change value
+          of src attribute */
+        let image1 = document.getElementById("image1");
+
+        image1.src = "images/insertion.png";
+
+        document.getElementById("btnID").style.display = "none";
+      }
+      function show2() {
+        /* Get image and change value
+of src attribute */
+        let image2 = document.getElementById("image2");
+
+        image2.src = "images/selection.png";
+
+        document.getElementById("btnID").style.display = "none";
+      }
+      function show3() {
+        /* Get image and change value
+of src attribute */
+        let image1 = document.getElementById("image3");
+
+        image3.src = "images/bubble.png";
+
+        document.getElementById("btnID").style.display = "none";
+      }
+
+      function show4() {
+        /* Get image and change value
+of src attribute */
+        let image1 = document.getElementById("image4");
+
+        image4.src = "images/quick.png";
+
+        document.getElementById("btnID").style.display = "none";
+      }
+
+      function show5() {
+        /* Get image and change value
+of src attribute */
+        let image1 = document.getElementById("image5");
+
+        image1.src = "images/merge.png";
+
+        document.getElementById("btnID").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

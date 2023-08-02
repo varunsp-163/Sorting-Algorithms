@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heap Sort Visualization</title>
+
+    <!-- css sheet for how the page is laid out -->
+
+    <link rel="stylesheet" href="visualizationPageStyle.css" />
+
+    <!-- jqueury stuff.  Only used for the animation speed slider. -->
+    <link rel="stylesheet" href="jquery-ui-1.8.11.custom.css" />
+    <script src="jquery-1.5.2.min.js"></script>
+    <script src="jquery-ui-1.8.11.custom.min.js"></script>
+
+    <!-- Javascript for the actual visualization code -->
+    <script type="text/javascript" src="CustomEvents.js"></script>
+    <script type="text/javascript" src="UndoFunctions.js"></script>
+    <script type="text/javascript" src="AnimatedObject.js"></script>
+    <script type="text/javascript" src="AnimatedLabel.js"></script>
+    <script type="text/javascript" src="AnimatedCircle.js"></script>
+    <script type="text/javascript" src="AnimatedRectangle.js"></script>
+    <script type="text/javascript" src="AnimatedLinkedList.js"></script>
+    <script type="text/javascript" src="HighlightCircle.js"></script>
+    <script type="text/javascript" src="Line.js"></script>
+    <script type="text/javascript" src="ObjectManager.js"></script>
+    <script type="text/javascript" src="AnimationMain.js"></script>
+    <script type="text/javascript" src="Algorithm.js"></script>
+    <script type="text/javascript" src="HeapSort.js"></script>
+  </head>
+
+  <body onload="init();" class="VisualizationMainPage">
+    <div id="container">
+      <div id="header">
+        <h1>Heap Sort</h1>
+      </div>
+
+      <div ="id" ="mainContent">
+        <div id="algoControlSection">
+          <!-- Table for buttons to control specific animation (insert/find/etc) -->
+          <!-- (filled in by javascript code specific to the animtion) -->
+          <table
+            id="AlgorithmSpecificControls"
+            style="padding-left: 670px"
+          ></table>
+        </div>
+
+        <!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
+        <div style="display: flex; background-color: rgb(161, 234, 153)">
+          <p style="display: flex; padding-right: 100px">Algorithms :-</p>
+          <img id="image" src="" />
+          <div style="padding-left: 500px; padding-top: 12px">
+            <button onclick="show()" id="btnID" style="border-radius: 8px;">
+              <a href="#">heap sort</a>
+            </button>
+          </div>
+        </div>
+        <canvas
+          id="canvas"
+          width="1000"
+          height="500"
+          style="padding: 48px 18%; background-color: rgb(198, 226, 235)"
+        ></canvas>
+
+        <div id="generalAnimationControlSection" style="padding: 2px 250px">
+          <!-- Table for buttons to control general animation (play/pause/undo/etc) ->
+					<!-- (filled in by javascript code, specifically AnimationMain.js)  -->
+
+          <table id="GeneralAnimationControls"></table>
+        </div>
+      </div>
+      <!-- mainContent -->
+    </div>
+    <!-- container -->
+    <script>
+      function show() {
+        /* Get image and change value
+of src attribute */
+        let image1 = document.getElementById("image");
+
+        image.src = "images/heap.png";
+
+        document.getElementById("btnID").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
